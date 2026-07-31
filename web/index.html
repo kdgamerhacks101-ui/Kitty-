@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Kitty Magical Experience 🐱❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- MediaPipe CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Background decorative ambient lights -->
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+
+        <header>
+            <div class="logo">Lovely<span>Kitty</span> 🐱❤️</div>
+            <div class="tagline">A reversible gesture-controlled interactive experience. Enable sound and show your hand to start.</div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Side: Interactive Canvas -->
+            <div class="canvas-card">
+                <canvas id="flowerCanvas"></canvas>
+                
+                <!-- Status indicators overlaid on the canvas -->
+                <div class="canvas-overlay">
+                    <div class="status-badge" id="gestureStatus">
+                        <span class="pulse-dot"></span>
+                        <span class="status-text">Initializing Camera...</span>
+                    </div>
+                    <div class="bloom-counter" id="bloomCounter">0%</div>
+                </div>
+            </div>
+
+            <!-- Hidden Video Feed for MediaPipe processing -->
+            <video id="webcam" style="display: none;" autoplay playsinline muted></video>
+            <div class="camera-placeholder" id="cameraPlaceholder" style="display: none;"></div>
+
+            <!-- Right Side: Sidebar Controls -->
+            <aside class="sidebar">
+
+                <!-- Stats & Guidance Card -->
+                <div class="sidebar-card stats-card">
+                    <h3>Interactive Status</h3>
+                    <div class="stat-row">
+                        <span class="stat-label">Hand Detected</span>
+                        <span class="stat-value badge badge-off" id="handDetectedVal">No</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Active Gesture</span>
+                        <span class="stat-value" id="handStateVal">Scanning...</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Hand Openness</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="opennessBar" style="width: 0%"></div>
+                        </div>
+                        <span class="stat-value font-mono" id="opennessVal">0%</span>
+                    </div>
+                </div>
+
+                <!-- Guidance Info -->
+                <div class="sidebar-card instructions-card">
+                    <h3>How to Control</h3>
+                    <ul class="gestures-guide">
+                        <li>
+                            <span class="gesture-icon">✊</span>
+                            <div>
+                                <strong>Closed Fist</strong>
+                                <p>Generates a tiny pulsing orb with orbiting sparkles.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="gesture-icon">🖐️</span>
+                            <div>
+                                <strong>Open Hand</strong>
+                                <p>Slowly open your hand to burst the orb, grow a rose, and reveal a beating heart. Close your fist to reverse the animation!</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="gesture-icon">👍</span>
+                            <div>
+                                <strong>Thumbs Up</strong>
+                                <p>Launches a beautiful burst of pink and gold heart-shaped fireworks.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>Happy Girlfriend's Day! Powered by MediaPipe Hands & HTML5 Canvas.</p>
+        </footer>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
