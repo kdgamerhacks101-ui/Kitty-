@@ -1,0 +1,6 @@
+# Ignore Python backend files so Vercel builds as a static website
+requirements.txt
+steering_wheel.py
+hand_landmarker.task
+README.md
+.git
